@@ -30,34 +30,31 @@ describe('app routes', () => {
     afterAll(done => {
       return client.end(done);
     });
+//////////////////
+    test.only('returns JUST JON\'s todos', async() => {
 
-    test('returns animals', async() => {
-
-      const expectation = [
-        {
-          'id': 1,
-          'name': 'bessie',
-          'coolfactor': 3,
-          'owner_id': 1
+      const expectation = {
+          'id': 4,
+          'name': 'wash car',
+          'done': false,
+          'owner_id': 2
         },
-        {
-          'id': 2,
-          'name': 'jumpy',
-          'coolfactor': 4,
-          'owner_id': 1
-        },
-        {
-          'id': 3,
-          'name': 'spot',
-          'coolfactor': 10,
-          'owner_id': 1
-        }
-      ];
-
+       
+ 
+      
+    //  const response = fakeRequest(app)
+    //     .post('/api/todo')
+    //     .send(expectation[0])
+    //     .set('Authorization', token)
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
+   
       const data = await fakeRequest(app)
-        .get('/animals')
+        .get('/api/todo')
+        .set('Authorization', token)
         .expect('Content-Type', /json/)
         .expect(200);
+      
 
       expect(data.body).toEqual(expectation);
     });
