@@ -1,14 +1,14 @@
 module.exports = [
   {
     name: 'wash car',
-    done: false,
+    done: false
   },
   {
     name: 'mow lawn',
-    done: false,
+    done: false
   },
   {
     name: 'mop',
-    done: false,
+    done: false
   }
 ];
